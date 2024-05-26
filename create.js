@@ -27,9 +27,6 @@ const create = async () => {
     },
   ]);
   
-  
-  const startTime = Date.now();
-  
   const { project, name, description } = answer;
   
   const templateList = [{ name: '项目一', temp: 'github:vuejs/vue' }, { name: '项目二', temp: 'github:vuejs/vue' }];
@@ -51,7 +48,7 @@ const create = async () => {
     }
   }
   
-  
+  const startTime = Date.now();
   const spinner = ora(chalk.green("正在创建项目中")).start();
   
   download(cur.temp, `${process.cwd()}/temp`, {}, function (err) {
@@ -66,7 +63,6 @@ const create = async () => {
     spinner.succeed(`${chalk.green("项目创建完毕")}，花费时间为 ${chalk.blue(endTime - startTime)} ms`);
   });
 };
-
 
 create();
 
